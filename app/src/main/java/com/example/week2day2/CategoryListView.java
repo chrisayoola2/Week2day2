@@ -29,30 +29,27 @@ public class CategoryListView extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), RecyclerViewOfAnimals.class);
-                startActivity(intent);
+                Intent intent = new Intent(view.getContext(), RecyclerViewOfAnimals.class);
 
+                if(position == 0) {
+                    intent.putExtra("category", 0);
+                    startActivity(intent);
+                }
+                if(position ==1){
+                    intent.putExtra("category", 1);
+                    startActivity(intent);
+                }
+                if(position ==2){
+                    intent.putExtra("category", 2);
+                    startActivity(intent);
+                }
             }
         });
-    }
-
-
-
-
-    public ListView getLvMyListView() {
-        return lvMyListView;
     }
 
     private void populateCategory(){
         animalCategories.add("Mammal");
         animalCategories.add("Bird");
         animalCategories.add("Reptile");
-        animalCategories.add("Fish");
-        animalCategories.add("Amphibian");
-        animalCategories.add("Bug");
-        animalCategories.add("Invertebrate");
-
     }
-
-
 }
